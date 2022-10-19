@@ -68,3 +68,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+#products-index img {
+  width: 300px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
