@@ -3,6 +3,7 @@ import axios from "axios";
 import { ProductsIndex } from "./ProductsIndex";
 import { ProductNew } from "./ProductNew";
 import { Modal } from "./Modal";
+import { ProductsShow } from "./ProductsShow";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -31,11 +32,7 @@ export function Home() {
       <ProductNew />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
-        <h2>{currentProduct.name}</h2>
-        <img src={currentProduct.images[0].url} alt="" />
-        <p>Description: {currentProduct.description}</p>
-        <p>Price: {currentProduct.price}</p>
-        <p># In Stock: {currentProduct.inventory}</p>
+        <ProductsShow product={currentProduct} />
       </Modal>
     </div>
   );
