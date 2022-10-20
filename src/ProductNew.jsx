@@ -3,21 +3,33 @@ export function ProductNew() {
     <div id="products-new">
       <form>
         <div>
-          Title: <input type="text" />
+          <p>
+            Title: <input type="text" />
+          </p>
         </div>
         <div>
-          Image URL: <input type="text" />
+          <p>
+            Image URL: <input type="text" />
+          </p>
         </div>
         <div>
-          Description: <input type="text" />
+          <p>
+            Description: <input type="text" />
+          </p>
         </div>
         <div>
-          Price: <input type="text" />
+          <p>
+            Price: <input type="text" />
+          </p>
         </div>
         <div>
-          Inventory: <input type="text" />
+          <p>
+            Inventory: <input type="text" />
+          </p>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">
+          <p>Submit</p>
+        </button>
       </form>
     </div>
   );

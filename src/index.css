@@ -76,3 +76,23 @@ button:focus-visible {
 html {
   scroll-behavior: smooth;
 }
+
+#root {
+  font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+  background-image: url("./assets/img/leaves.png");
+  width: 100%;
+}
+
+#root p {
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
