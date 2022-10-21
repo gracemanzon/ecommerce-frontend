@@ -6,6 +6,7 @@ import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductsShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
+import { Logout } from "./Logout";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -33,6 +34,7 @@ export function Home() {
     <div>
       <Signup />
       <Login />
+      <Logout />
       <ProductNew />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>

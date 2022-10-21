@@ -115,5 +115,6 @@ html {
 
 .form {
   border: 1px solid black;
-  width: 32em;
+  width: 26em;
+  text-align: center;
 }

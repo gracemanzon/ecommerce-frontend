@@ -1,9 +1,12 @@
 import axios from "axios";
+import { useState } from "react";
 
 export function Signup() {
+  const [errors, setErrors] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handleSubmit");
+    setErrors([]);
     const params = new FormData(event.target);
 
     axios
@@ -12,14 +15,20 @@ export function Signup() {
         console.log(response.data);
         event.target.reset();
       })
-      .catch((errors) => {
-        console.log(errors.response.data.errors);
+      .catch((error) => {
+        console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
       });
   };
 
   return (
     <div id="signup" className="form">
       <h1>Signup</h1>
+      <ul>
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
       <form onSubmit={handleSubmit}>
         <div>
           <p>
@@ -41,7 +50,9 @@ export function Signup() {
             Password Confirmation: <input name="password_confirmation" type="password" />
           </p>
         </div>
-        <button type="submit">Signup</button>
+        <button type="submit" className="btn btn-primary">
+          Signup
+        </button>
       </form>
     </div>
   );
