@@ -96,3 +96,24 @@ html {
   font-weight: 700;
   line-height: 26.4px;
 }
+
+.custom-card {
+  width: 18em;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+
+.all-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form {
+  border: 1px solid black;
+  width: 32em;
+}

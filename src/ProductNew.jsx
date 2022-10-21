@@ -1,6 +1,7 @@
 export function ProductNew() {
   return (
-    <div id="products-new">
+    <div id="products-new" className="form">
+      <h1>New Product</h1>
       <form>
         <div>
           <p>

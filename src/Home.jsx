@@ -4,6 +4,8 @@ import { ProductsIndex } from "./ProductsIndex";
 import { ProductNew } from "./ProductNew";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductsShow";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -29,6 +31,8 @@ export function Home() {
 
   return (
     <div>
+      <Signup />
+      <Login />
       <ProductNew />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
