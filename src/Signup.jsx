@@ -22,38 +22,42 @@ export function Signup() {
   };
 
   return (
-    <div id="signup" className="form">
-      <h1>Signup</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <p>
-            Name: <input name="name" type="text" />
-          </p>
+    <div id="signup">
+      <div className="card" style={{ width: "22em" }}>
+        <div className="card-header">Signup</div>
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <p>
+                Name: <input name="name" type="text" />
+              </p>
+            </div>
+            <div>
+              <p>
+                Email: <input name="email" type="email" />
+              </p>
+            </div>
+            <div>
+              <p>
+                Password: <input name="password" type="password" />
+              </p>
+            </div>
+            <div>
+              <p>
+                Password Confirmation: <input name="password_confirmation" type="password" />
+              </p>
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Signup
+            </button>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          </form>
         </div>
-        <div>
-          <p>
-            Email: <input name="email" type="email" />
-          </p>
-        </div>
-        <div>
-          <p>
-            Password: <input name="password" type="password" />
-          </p>
-        </div>
-        <div>
-          <p>
-            Password Confirmation: <input name="password_confirmation" type="password" />
-          </p>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Signup
-        </button>
-      </form>
+      </div>
     </div>
   );
 }
