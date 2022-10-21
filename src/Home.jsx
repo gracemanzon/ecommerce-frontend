@@ -13,6 +13,13 @@ export function Home() {
   const [isProductsShowVisible, setIsProductsShowVisible] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
 
+  const handleCreateProduct = (params) => {
+    axios.post("http://localhost:3000/products.json", params).then((response) => {
+      const newProduct = response.data;
+      setProducts([...products, newProduct]);
+    });
+  };
+
   const handleIndexProducts = () => {
     axios.get("http://localhost:3000/products.json").then((response) => {
       setProducts(response.data);
@@ -35,7 +42,7 @@ export function Home() {
       <Signup />
       <Login />
       <Logout />
-      <ProductNew />
+      <ProductNew onCreateProduct={handleCreateProduct} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
         <ProductsShow product={currentProduct} />

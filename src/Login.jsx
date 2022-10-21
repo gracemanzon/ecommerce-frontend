@@ -29,22 +29,29 @@ export function Login() {
   };
 
   return (
-    <div id="login" className="form">
-      <h1>Login</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input name="email" type="email" />
+    <div id="login">
+      <div className="card" style={{ width: "22em" }}>
+        <div className="card-header">Login</div>
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div>
+              Email: <input name="email" type="email" />
+            </div>
+            <div>
+              Password: <input name="password" type="password" />
+            </div>
+
+            <button type="submit" className="btn btn-primary">
+              Login
+            </button>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          </form>
         </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      </div>
     </div>
   );
 }
