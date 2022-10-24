@@ -35,6 +35,29 @@ export function Home() {
     });
   };
 
+  const handleUpdateProduct = (id, params) => {
+    axios.patch("http://localhost:3000/products/" + id + ".json", params).then((response) => {
+      const updatedProduct = response.data;
+      setCurrentProduct(updatedProduct);
+      setProducts(
+        products.map((product) => {
+          if (product.id === updatedProduct.id) {
+            return updatedProduct;
+          } else {
+            return product;
+          }
+        })
+      );
+    });
+  };
+
+  const handleDestroyProduct = (product) => {
+    axios.delete("http://localhost:3000/products/" + product.id + ".json").then((response) => {
+      setProducts(products.filter((p) => p.id !== product.id));
+      handleHideProduct();
+    });
+  };
+
   useEffect(handleIndexProducts, []);
 
   return (
@@ -45,7 +68,11 @@ export function Home() {
       <ProductNew onCreateProduct={handleCreateProduct} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
-        <ProductsShow product={currentProduct} />
+        <ProductsShow
+          product={currentProduct}
+          onUpdateProduct={handleUpdateProduct}
+          onDestroyProduct={handleDestroyProduct}
+        />
       </Modal>
     </div>
   );

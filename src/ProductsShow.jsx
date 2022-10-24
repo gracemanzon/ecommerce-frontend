@@ -4,10 +4,12 @@ export function ProductsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    axios.patch("http://localhost:3000/products/" + props.product.id + ".json", params).then((response) => {
-      console.log(response.data);
-      event.target.reset();
-    });
+    props.onUpdateProduct(props.product.id, params);
+    event.target.reset();
+  };
+
+  const handleClick = () => {
+    props.onDestroyProduct(props.product);
   };
 
   return (
@@ -43,7 +45,7 @@ export function ProductsShow(props) {
         </div>
         {/* <div>
           <p>
-            Image: <input type="text" name="image_url" defaultValue={props.product.image_url} />
+            Image: <input type="text" name="image_url" defaultValue={props.product.images} />
           </p>
         </div> */}
         <div>
@@ -55,6 +57,9 @@ export function ProductsShow(props) {
           <p>Submit</p>
         </button>
       </form>
+      <button onClick={handleClick} className="btn btn-primary">
+        <p>Delete</p>
+      </button>
     </div>
   );
 }
