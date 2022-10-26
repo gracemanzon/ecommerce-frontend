@@ -25,13 +25,6 @@ export function Home() {
     setIsProductsShowVisible(false);
   };
 
-  const handleCreateProduct = (params) => {
-    axios.post("http://localhost:3000/products.json", params).then((response) => {
-      const newProduct = response.data;
-      setProducts([...products, newProduct]);
-    });
-  };
-
   const handleUpdateProduct = (id, params) => {
     axios.patch("http://localhost:3000/products/" + id + ".json", params).then((response) => {
       const updatedProduct = response.data;
@@ -59,7 +52,6 @@ export function Home() {
 
   return (
     <div>
-      <ProductNew onCreateProduct={handleCreateProduct} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
         <ProductsShow

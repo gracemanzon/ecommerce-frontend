@@ -47,9 +47,12 @@ export function Header() {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#products-ne">
+                  <Link className="dropdown-item" to="/products/new">
+                    Add New Product
+                  </Link>
+                  {/* <a className="dropdown-item" href="#products-ne">
                     New Product
-                  </a>
+                  </a> */}
                 </li>
               </ul>
             </li>
