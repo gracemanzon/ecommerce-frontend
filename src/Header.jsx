@@ -59,8 +59,13 @@ export function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" aria-current="about" to="/Login">
+              <Link className="nav-link" aria-current="about" to="/login">
                 Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" aria-current="about" to="/logout">
+                Logout
               </Link>
             </li>
           </ul>
