@@ -62,9 +62,6 @@ export function Home() {
 
   return (
     <div>
-      <Signup />
-      <Login />
-      <Logout />
       <ProductNew onCreateProduct={handleCreateProduct} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
