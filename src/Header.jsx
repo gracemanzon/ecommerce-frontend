@@ -1,6 +1,33 @@
 import { Link } from "react-router-dom";
 
 export function Header() {
+  let authenticationLinks;
+
+  if (localStorage.jwt === undefined) {
+    authenticationLinks = (
+      <>
+        <li className="nav-item">
+          <Link className="nav-link" aria-current="about" to="/login">
+            Login
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" aria-current="about" to="/signup">
+            Signup
+          </Link>
+        </li>
+      </>
+    );
+  } else {
+    authenticationLinks = (
+      <li className="nav-item">
+        <Link className="nav-link" aria-current="about" to="/logout">
+          Logout
+        </Link>
+      </li>
+    );
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -50,27 +77,10 @@ export function Header() {
                   <Link className="dropdown-item" to="/products/new">
                     Add New Product
                   </Link>
-                  {/* <a className="dropdown-item" href="#products-ne">
-                    New Product
-                  </a> */}
                 </li>
               </ul>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" aria-current="about" to="/signup">
-                Signup
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" aria-current="about" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" aria-current="about" to="/logout">
-                Logout
-              </Link>
-            </li>
+            {authenticationLinks}
           </ul>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

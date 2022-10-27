@@ -3,6 +3,8 @@ import { useState } from "react";
 
 export function Signup() {
   const [errors, setErrors] = useState([]);
+  const [name, setName] = useState("");
+  const [status, setStatus] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,6 +20,7 @@ export function Signup() {
       .catch((error) => {
         console.log(error.response.data.errors);
         setErrors(error.response.data.errors);
+        setStatus(error.response.status);
       });
   };
 
@@ -28,24 +31,21 @@ export function Signup() {
         <div className="card-body">
           <form onSubmit={handleSubmit}>
             <div>
-              <p>
-                Name: <input name="name" type="text" />
-              </p>
+              <p>Name: </p>
+              <input name="name" type="text" value={name} onChange={(event) => setName(event.target.value)} />
+              <small className={name.length > 20 ? "error" : ""}> {20 - name.length} /20</small>
             </div>
             <div>
-              <p>
-                Email: <input name="email" type="email" />
-              </p>
+              <p>Email: </p>
+              <input name="email" type="email" />
             </div>
             <div>
-              <p>
-                Password: <input name="password" type="password" />
-              </p>
+              <p>Password: </p>
+              <input name="password" type="password" />
             </div>
             <div>
-              <p>
-                Password Confirmation: <input name="password_confirmation" type="password" />
-              </p>
+              <p>Password Confirmation: </p>
+              <input name="password_confirmation" type="password" />
             </div>
             <button type="submit" className="btn btn-primary">
               Signup
@@ -58,6 +58,7 @@ export function Signup() {
           </form>
         </div>
       </div>
+      {status ? <img src={`https://http.cat/${status}`} className="statusImg" /> : null}
     </div>
   );
 }
