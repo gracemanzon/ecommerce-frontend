@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Logout } from "./Logout";
 
 export function Header() {
   let authenticationLinks;
@@ -21,9 +22,7 @@ export function Header() {
   } else {
     authenticationLinks = (
       <li className="nav-item">
-        <Link className="nav-link" aria-current="about" to="/logout">
-          Logout
-        </Link>
+        <Logout />
       </li>
     );
   }
